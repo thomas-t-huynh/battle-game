@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <title>Battle Game</title> -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="game">
+      <div hidden id="topMessageBar">
+        <div id="topMessage"></div>
+      </div>
+      <div hidden id="title">
+        <div>
+          <h1>Battle Game</h1>
+          <button onclick="manager.nextScene()" id="start-button">Start</button>
+        </div>
+      </div>
+      <div hidden id="characterSelect"></div>
+      <div hidden id="bottomMessageBar">
+        <div id="bottomMessage"></div>
+      </div>
+    </div>
+    <script src="core/manager/manager.js"></script>
+    <script src="core/scene/scene.js"></script>
+    <script src="core/scene/characterSelect.js"></script>
+    <script src="core/scene/title.js"></script>
+    <script src="core/heroes/hero.js"></script>
+    <script src="core/heroes/warrior.js"></script>
+    <script>
+      const characterSelect = new CharacterSelect({
+        id: 'characterSelect',
+        heroes: [new Warrior(), new Warrior(), new Warrior()],
+      });
+      const manager = new Manager({
+        scenes: [new Title({ id: 'title' }), characterSelect],
+      });
+      manager.init();
+    </script>
+  </body>
+</html>
