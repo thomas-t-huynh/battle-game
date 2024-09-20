@@ -5,5 +5,7 @@ class Warrior extends Hero {
   magic = 0;
   defense = 10;
   resist = 5;
+  speed = 15;
   class = 'warrior';
+  skills = [new Attack()];
 }

@@ -18,6 +18,10 @@
         </div>
       </div>
       <div hidden id="characterSelect"></div>
+      <div hidden id="battle">
+        <div hidden id="battleUi"></div>
+      </div>
+
       <div hidden id="bottomMessageBar">
         <div id="bottomMessage"></div>
       </div>
@@ -26,15 +30,28 @@
     <script src="core/scene/scene.js"></script>
     <script src="core/scene/characterSelect.js"></script>
     <script src="core/scene/title.js"></script>
+    <script src="core/scene/battle.js"></script>
+    <script src="core/skills/skill.js"></script>
+    <script src="core/skills/attacks.js"></script>
     <script src="core/heroes/hero.js"></script>
     <script src="core/heroes/warrior.js"></script>
+    <script src="core/enemies/enemies.js"></script>
     <script>
       const characterSelect = new CharacterSelect({
         id: 'characterSelect',
         heroes: [new Warrior(), new Warrior(), new Warrior()],
       });
+      // const manager = new Manager({
+      //   scenes: [new Title({ id: 'title' }), characterSelect],
+      // });
+      const battle = new Battle({
+        player: {
+          party: [new Warrior()],
+        },
+        enemies: [new Goblin(), new Goblin(), new Goblin()],
+      });
       const manager = new Manager({
-        scenes: [new Title({ id: 'title' }), characterSelect],
+        scenes: [battle],
       });
       manager.init();
     </script>

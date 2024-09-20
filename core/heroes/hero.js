@@ -4,5 +4,7 @@ class Hero {
   attack = 0;
   defense = 0;
   resist = 0;
+  speed = 0;
   class = 'hero';
+  owner = 'player';
 }
